@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://dgpjvpwo3xur0"]
+
+[ext_resource type="Script" path="res://necromancer.gd" id="1_w0f7v"]
+[ext_resource type="Texture2D" uid="uid://5mpyt6agft2l" path="res://art/Necromancer_creativekind-Sheet.png" id="2_4gnvt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iteti"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hi4oh"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m01iw"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se4pk"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ygbs"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpg7g"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ttvb"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(960, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xlqhi"]
+atlas = ExtResource("2_4gnvt")
+region = Rect2(1120, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q1jf4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iteti")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hi4oh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m01iw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_se4pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ygbs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpg7g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ttvb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xlqhi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_488lj"]
+radius = 15.0
+height = 44.0
+
+[node name="Necromancer" type="CharacterBody2D"]
+scale = Vector2(2, 2)
+script = ExtResource("1_w0f7v")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_q1jf4")
+animation = &"run"
+frame = 1
+frame_progress = 0.563486
+offset = Vector2(0, -22.025)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_488lj")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
